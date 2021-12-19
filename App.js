@@ -38,11 +38,12 @@ class App extends React.Component {
       files: this.files,
       // audio: this.audio,
     });
+
     this.setState({ loading: false });
   }
 
   componentWillMount() {
-    Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+    // Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
     this.preloadAssets();
   }
 

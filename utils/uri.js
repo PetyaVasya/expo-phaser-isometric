@@ -1,4 +1,4 @@
-import { Asset } from 'expo';
+import { Asset } from 'expo-asset';
 
 export default (resource, debugTag) => {
   let asset = Asset.fromModule(resource);

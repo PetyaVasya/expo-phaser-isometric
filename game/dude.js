@@ -29,10 +29,12 @@ class Dude {
   }
 
   stop() {
-    this.sprite.animations.stop();
+      this.sprite.animations.stop();
+      this.sprite.loadTexture('char', 'greenhood_idle' + this.animation.replace(/walk/, () => '').replace(/[A-Z]/g, m => "_" + m.toLowerCase()));
   }
 
   play(animation) {
+      this.animation = animation;
     this.sprite.animations.play(animation);
   }
 

@@ -4,10 +4,12 @@ import './phaser-plugin-isometric.js';
 import Playable from './states/Playable';
 
 export default class Game {
-  constructor({ context }) {
-    Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
-    const game = ExpoPhaser.game({ context });
-    this.playable = new Playable({ game, context });
+
+  constructor({ context, width, height, seed }) {
+    const game = ExpoPhaser.game({ context: context, width: width, height: height });
+    this.expoGame = game, this.width = width, this.height = height;
+
+    this.playable = new Playable({ game, context, seed });
     game.state.add('Playable', this.playable);
     game.state.start('Playable');
   }
@@ -20,4 +22,7 @@ export default class Game {
     this.playable && this.playable.onTouchesMoved(x, y);
   onTouchesEnded = (x, y) =>
     this.playable && this.playable.onTouchesEnded(x, y);
+    onClick = (x, y, callback) =>
+    this.playable && this.playable.onClick(x, y, callback);
+
 }
